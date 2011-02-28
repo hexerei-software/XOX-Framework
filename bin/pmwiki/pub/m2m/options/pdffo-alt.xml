@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="ISO8859-1"?>
+<!DOCTYPE options SYSTEM "options.dtd">
+<options>
+	<category title="Konverter-Optionen">
+		<option name="processor.xslt" type="enum(saxon, xalan, xsltproc)">
+			<description>XSLT-Prozessor</description>
+			<value>xsltproc</value>
+		</option>
+		<option name="processor.fo" type="enum(FOP, XEP)">
+			<description>FO-Prozessor</description>
+			<value>FOP</value>
+		</option>
+	</category>
+	<category title="Seiteneinstellungen">
+		<option name="paper.type" type="enum(A5, A4, USletter)">
+			<description>Papierformat</description>
+			<value>A4</value>
+		</option>
+		<option name="page.orientation" type="enum(portrait, landscape)">
+			<description>Orientierung</description>
+			<value>portrait</value>
+		</option>
+		<option name="double.sided" type="bool">
+			<description>doppelseitig</description>
+			<value>0</value>
+		</option>
+		<option name="page.margin.top" type="string">
+			<description>Oberer Seitenrand</description>
+			<value>2cm</value>
+		</option>
+		<option name="page.margin.bottom" type="string">
+			<description>Unterer Seitenrand</description>
+			<value>2cm</value>
+		</option>
+		<option name="alignment" type="enum(left, center, right, justify)">
+			<description>Textausrichtung</description>
+			<value>justify</value>
+		</option>
+		<option name="header.rule" type="bool">
+			<description>Linie unter Kopfzeile</description>
+			<value>1</value>
+		</option>
+		<option name="footer.rule" type="bool">
+			<description>Linie über Fußzeile</description>
+			<value>0</value>
+		</option>
+		<option name="headers.on.blank.pages" type="bool">
+			<description>Kopfzeile auf leeren Seiten</description>
+			<value>0</value>
+		</option>
+		<option name="footers.on.blank.pages" type="bool">
+			<description>Fußzeile auf leeren Seiten</description>
+			<value>0</value>
+		</option>
+		<!--		<option name="hyphenate" type="enum(true, false)" value-as="body">
+      <description>Silbentrennung</description>
+      <value>true</value>
+      </option> -->
+	</category>
+	<category title="Schrifteinstellungen">
+		<option name="body.font.master" type="int">
+			<description>Schriftgröße (in Punkt)</description>
+			<value>10</value>
+		</option>
+		<option name="body.font.family" type="enum(serif, sans-serif)">
+			<description>Schriftfamilie Text</description>
+			<value>serif</value>
+		</option>
+		<option name="title.font.family" type="enum(serif, sans-serif)">
+			<description>Schriftfamilie Titel</description>
+			<value>sans-serif</value>
+		</option>
+		<option name="section.title.level1.properties" type="float">
+			<description>Vergrößerungsfaktor Überschrift 1</description>
+			<value>1.728</value>
+		</option>
+		<option name="section.title.level2.properties" type="float">
+			<description>Vergrößerungsfaktor Überschrift 2</description>
+			<value>1.44</value>
+		</option>
+		<option name="section.title.level3.properties" type="float">
+			<description>Vergrößerungsfaktor Überschrift 3</description>
+			<value>1.2</value>
+		</option>
+		<option name="section.title.level4.properties" type="float">
+			<description>Vergrößerungsfaktor Überschrift 4</description>
+			<value>1.1</value>
+		</option>
+	</category>
+	<category title="Inhaltsverzeichnis und Gliederung">
+		<!--    <option name="process.source.toc" type="bool"> 
+      <description>Eigene Inhaltsverzeichnisse verwenden</description>
+      <value>0</value>
+      </option>
+      <option name="generate.toc" type="bool"> 
+      <description>Automatisches Inhaltsverzeichnis generieren</description>
+      <value>1</value>
+      </option> -->
+		<option name="generate.index" type="bool">
+			<description>Automatischen Index generieren</description>
+			<value>0</value>
+		</option>
+		<option name="toc.on.separate.page" type="bool">
+			<description>Seitenumbruch nach Inhaltsverzeichnis</description>
+			<value>0</value>
+		</option>
+		<option name="toc.section.depth" type="int" value-as="body">
+			<description>Maximale Tiefe des Inhaltsverzeichnisses</description>
+			<value>3</value>
+		</option>
+		<option name="toc.indent.width" type="int">
+			<description>Einrücktiefe des Inhaltsverzeichnisses pro Ebene in pt</description>
+			<value>24</value>
+		</option>
+	</category>
+	<category title="Formatierung">
+		<option name="body.start.indent" type="string">
+			<description>Absatzeinrückung</description>
+			<value>4pc</value>
+		</option>
+		<option name="title.margin.left" type="string">
+			<description>Einrückung der Überschriften</description>
+			<value>0pt</value>
+		</option>
+		<option name="shade.verbatim" type="bool">
+			<description>Verbatim-Blöcke farbig hinterlegen</description>
+			<value>1</value>
+		</option>
+	</category>
+	<!--  <category title="LaTeX">
+    <option name="tex.math.in.alt" type="bool"> 
+    <description>Formeln in LaTex-Format verarbeiten</description>
+    <value>0</value>
+    </option>    
+    </category> -->
+	<category title="Labelling">
+		<option name="chapter.autolabel" type="bool">
+			<description>Automatische Kapitelnummerierung</description>
+			<value>1</value>
+		</option>
+		<option name="part.autolabel" type="bool">
+			<description>Automatische Nummerierung von Verweisen</description>
+			<value>0</value>
+		</option>
+		<option name="section.autolabel" type="bool">
+			<description>Automatische Abschnittsnummerierung</description>
+			<value>1</value>
+		</option>
+		<option name="section.autolabel.max.depth" type="int">
+			<description>Maximale Nummerierungstiefe</description>
+			<value>8</value>
+		</option>
+		<option name="ulink.show" type="bool">
+			<description>URLs von externen Links ausgeben</description>
+			<value>0</value>
+		</option>
+		<option name="ulink.footnotes" type="bool">
+			<description>URLs von externen Links als Fußnoten</description>
+			<value>0</value>
+		</option>
+	</category>
+	<category title="hidden">
+		<option name="marker.section.level" type="int">
+			<description/>
+			<value>1</value>
+		</option>
+		<option name="use.role.for.mediaobject" type="int">
+			<description/>
+			<value>1</value>
+		</option>
+		<option name="preferred.mediaobject.role" type="string">
+			<description/>
+			<value>fo</value>
+		</option>
+		<option name="draft.mode" type="string">
+			<description/>
+			<value>no</value>
+		</option>
+		<option name="fop.extensions" type="int">
+			<description/>
+			<value>1</value>
+		</option>
+	</category>
+</options>

@@ -1,0 +1,12 @@
+<!ELEMENT options (category|include)*>
+<!ELEMENT category (option)*>
+<!ATTLIST category title CDATA #REQUIRED>
+<!ELEMENT option (#PCDATA | description | value)*>
+<!ATTLIST option name  CDATA #REQUIRED
+                               type    CDATA #REQUIRED
+                               target CDATA #IMPLIED
+                               value-as (body|attrib) #IMPLIED>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT include EMPTY>
+<!ATTLIST include file CDATA #REQUIRED>

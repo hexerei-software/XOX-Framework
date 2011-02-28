@@ -1,0 +1,126 @@
+Was ist media2mult?
+-------------------
+
+Bei media2mult handelt es sich um eine Erweiterung des Wiki-Systems PmWiki (www.pmwiki.org) von Patrick Michaud. Sie stellt Funktionen zum Einbetten verschiedener Medien, wie Grafiken, Audiodateien und Videos, in die Wikiseiten sowie eine Komponente zum Cross-Media-Publishing bereit. Neben den gängigen Dateiformaten werden auch Formate unterstützt, die nicht direkt vom Webbrowser dargestellt werden können. Dazu gehören u.a. EPS und FIG. Darüber hinaus unterstützt media2mult LaTeX und gnuplot. Auf Wunsch können einzelne oder beliebige Sequenzen von Wikiseiten ins PDF-Format konvertiert werden.
+
+
+Hinweise zur Installation
+-------------------------
+
+Während PmWiki prinzipiell auf allen Systemen mit Apache- und PHP5-Unterstützung läuft, benötigt media2mult ein Unix/Linux-basiertes Betriebssystem. Erfolgreich getestet wurde es bisher mit den Linux-Distributionen Fedora, Ubuntu, Debian und OpenSUSE.
+ 
+Wenn Sie keine Erfahrung mit Linux haben, können Sie OpenSUSE 10.3 von der Heft-DVD aus c't 22/07 installieren. In diesem Heft finden Sie auf Seite 92 einen Artikel, der in die Systemverwaltung und Software-Installation mit Yast einführt. Die folgende Anleitung bezieht sich auf dieses System und muss unter anderen Linux-Versionen eventuell leicht geändert werden.
+
+Apache und PHP installieren/konfigurieren
+-----------------------------------------
+
+Öffnen Sie die Konsole und geben Sie dort folgendes ein:
+
+yast2 -i apache2 apache2-devel apache2-mod_perl apache2-mod_php5 apache2-prefork perl-HTML-Parser perl-HTML-Tagset perl-Tie-IxHash perl-URI perl-libwww-perl php5 php5-devel zlib zlib-devel
+
+yast2 -i php5-bcmath php5-bz2 php5-calendar php5-ctype php5-curl php5-dbase php5-dom php5-ftp php5-gd php5-gettext php5-gmp php5-iconv php5-imap php5-ldap php5-mbstring php5-mcrypt php5-mhash php5-mysql php5-ncurses php5-odbc php5-openssl php5-pcntl php5-pgsql php5-posix php5-shmop php5-snmp php5-soap php5-sockets php5-sqlite php5-sysvsem php5-tokenizer php5-wddx php5-xmlrpc php5-xsl php5-zlib php5-exif php5-fastcgi php5-pear php5-sysvmsg php5-sysvshm ImageMagick curl
+
+
+Öffnen Sie Die Datei "/etc/sysconfig/apache2" mit einem Texteditor. Ersetzen Sie die Zeile, die mit APACHE_MODULES= beginnt durch:
+APACHE_MODULES="actions alias auth_basic authn_file authz_host authz_groupfile authz_default authz_user authn_dbm autoindex cgi dir env expires include log_config mime negotiation setenvif ssl suexec userdir php5 rewrite"
+
+
+Öffnen Sie die Datei /etc/php5/apache2/php.ini mit einem Texteditor und ersetzten Sie die Zeile 
+  short_open_tag = Off
+durch 
+  short_open_tag = On
+
+
+
+Starten des Webservers
+----------------------
+
+Geben Sie in der Konsole nacheinander folgende Anweisungen ein:
+  chkconfig –add apache2
+  SuSEconfig
+  /etc/init.d/apache2 start
+
+
+Wenn Sie nun im Webbrowser die URL http://localhost aufrufen, müsste "It works!" erscheinen.
+
+
+PmWiki installieren
+-------------------
+
+Laden Sie pwiki-latest.zip herunter (siehe Soft-Link 0818186)
+
+Entpacken Sie die ZIP-Datei ins Dokumentenverzeichnis des Webservers. Bei OpenSUSE 10.3 ist dies /srv/www/htdocs. Im folgenden bezeichnen wir dieses Verzeichnis kurz als <webroot>.
+
+Geben Sie in der Konsole nacheinander folgendes ein:
+  cd <webroot>/pmwiki
+  mv pmwiki-2.1.27 pmwiki
+  mkdir wiki.d m2m.de uploads
+  chown wwwrun.www wiki.de m2m.de uploads
+  cp docs/sample-config.php local/config.php
+
+Die im Browser aufgerufene URL http://localhost/pmwiki/pmwiki.php müsste nun zur Startseite von PmWiki führen. Es sollten keine Fehlermeldung erscheinen.
+
+
+media2mult installieren
+-----------------------
+
+Geben Sie in der Konsole nacheinander folgendes ein:
+  mkdir <webroot>/pmwiki/m2m
+  chmod 755 <webroot>/pmwiki/m2m
+
+Laden Sie die Datei m2m.zip herunter (siehe Soft-Link 0818186) und entpacken Sie sie ins Verzeichnis <webroot>/pmwiki/m2m.
+
+Öffnen Sie die Datei <webroot>/pmwiki/local/config.php in einem Texteditor und fügen Sie am Ende folgende Zeilen ein:
+  $M2MUrl="http://<yourserver>/pmwiki/pub/m2m";
+  include "$FarmD/pub/m2m/m2m-v2.php";
+  
+Wenn Sie das Hochladen von Dateien aktivieren möchten, entfernen Sie zusätzlich die Raute (#) am Anfang folgender Zeile:
+# $EnableUpload = 1;                       
+
+
+In der Konsole eingeben:
+  cp <webroot>/pmwiki/pub/m2m/m2m-config.php.example <webroot>/pmwiki/pub/m2m/m2m-config.php
+
+
+Stellen Sie mit Yast sicher, dass folgende Pakete installiert sind:
+  + enscript
+  + epstopdf
+  + ffmpeg 
+  + gnuplot
+  + gs/ghostscript
+  + ImageMagick
+  + Java Runtime Environment
+  + libxml2
+  + libxslt
+  + pcre
+  + tetex oder TeXLive
+  + transfig
+  + zip und unzip
+
+Im Fall des erwähnten OpenSuse 10.3 aus c't 22/07 lassen sich außer ffmpeg alle wichtigen Tools von der Heft-DVD nachinstallieren. Um ffmpeg nachzuinstallieren, müssen Sie in Yast Packman als Community Repository eintragen (s. c't 22/07, S. 92).
+
+Laden Sie den XEP FO Processor herunter (siehe Soft-Link 0818186) und installieren ihn in /opt.
+
+Laden Sie Apache Batik herunter (siehe Soft-Link 0818186) und installieren es in /opt. 
+
+Nun müssen Sie die beiden Kommandozeilen-Tools, die zu media2mult gehören, kompilieren. Geben Sie dazu auf der Konsole ein:
+  cd <webroot>/pmwiki/pub/m2m/tools
+  make
+  
+Achtung: bei OpenSuse 10.3 kommt eine Fehlermeldung, da der Compiler g++ nicht installiert ist. Das müssen Sie im Yast nachholen. Außerdem müssen Sie den Aufruf des Compilers in <webroot>/pmwiki/pub/m2m/tools/Makefile ändern:
+aus der zeile
+CXX = g++ -g
+wird
+CXX = g++-4.2 -g
+
+Beim Aufruf von http://localhost/pmwiki/pmwiki.php?action=check-m2m-config sollten nun alle Tools als "found" gekennzeichnet sein.
+
+Wenn die Testseite vorhandene Tools als "not found" moniert, stimmt meist der Pfad nicht. Dies lässt sich durch editieren des Eintrags in <webroot>/pmwiki/pub/m2m/m2m-config.php beheben. Unter OpenSuse 10.3 muss man dort die Zeile:
+RegisterTool('gnuplot', '/usr/local/bin/gnuplot', '$SCRIPT');
+ändern in:
+RegisterTool('gnuplot', '/usr/bin/gnuplot', '$SCRIPT');
+
+Nun sollte media2mult einsatzbereit sein. Rufen Sie die Startseite http://localhost/pmwiki/pmwiki.php auf, wählen Sie links die Seite "WikiSandbox" und editieren Sie sie. Sie können einfach die Beispiele aus dem Artikel ausprobieren.
+
+Eine wichtiger Hinweis fehlt dort allerdings: Den Publish-Button, um die Wiki-Seite in PDF zu konvertieren, machen Sie durch Hinzufügen der Wiki-Anweisung  (:publish:) sichtbar.
+

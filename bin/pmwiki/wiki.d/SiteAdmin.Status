@@ -1,0 +1,8 @@
+version=pmwiki-2.2.0-beta65 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.8.1.12) Gecko/20080201 Firefox/2.0.0.12
+host=192.168.33.17
+name=SiteAdmin.Status
+rev=1
+text=(:comment Any local edits to this page may be lost!:)%0a%0aThis site is running {$Version} (VersionNum={$VersionNum}).%0a
+time=1205432285
+updatedto=2001965

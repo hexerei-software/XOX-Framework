@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<options>
+	<option name="body.font.family" type="string">
+		<description></description>
+		<value>Arial</value>
+	</option>
+
+	<section title="Dokumenteinstellungen">
+		<option name="doc.language" type="enum(deutsch,english)">
+			<description>Sprache</description>
+			<value>deutsch</value>
+		</option>
+		<option name="titlepage.create" type="bool">
+			<description>Titelseite erzeugen</description>
+			<value>0</value>
+		</option>
+		<option name="toc.create" type="bool">
+			<description>Inhalsverzeichnis erzeugen</description>
+			<value>1</value>
+		</option>		
+		<option name="body.font.size" type="length">
+			<description>Schriftgröße</description>
+			<value>10pt</value>
+		</option>
+		<option name="bookmarks.create" type="bool">
+			<description>Bookmarks erzeugen</description>
+			<value>1</value>
+		</option>
+	</section>
+
+	<section title="Seiteneinstellungen">
+		<option name="page.format" type="enum(custom,A3,A4,A5,Letter)">
+			<description>Seitenformat</description>
+			<value>A4</value>
+		</option>
+		<option name="page.width" type="length">
+			<description>Seitenbreite</description>
+			<value>210mm</value>
+		</option>
+		<option name="page.height" type="length">
+			<description>Seitenhöhe</description>
+			<value>297mm</value>
+		</option>
+		<option name="page.margin.left" type="length">
+			<description>Rand links</description>
+			<value>2cm</value>
+		</option>
+		<option name="page.margin.right" type="length">
+			<description>Rand rechts</description>
+			<value>2cm</value>
+		</option>
+		<option name="page.margin.top" type="length">
+			<description>Rand oben</description>
+			<value>2cm</value>
+		</option>
+		<option name="page.margin.bottom" type="length">
+			<description>Rand unten</description>
+			<value>2cm</value>
+		</option>
+	</section>
+
+	<section title="Texteinstellungen">
+		<option name="section.pagebreak.level" type="int">
+			<description>Seitenumbruch bei Gliederungsebene</description>
+			<value>1</value>
+		</option>
+		<option name="section.title.font.scale" type="array[level:Level]">
+			<description>Größe der Abschnittsüberschriften</description>
+			<value>
+				<entry level="1" type="float">2.0</entry>
+				<entry level="2" type="float">1.8</entry>
+				<entry level="3" type="float">1.6</entry>
+				<entry level="4" type="float">1.4</entry>
+				<entry level="5" type="float">1.2</entry>
+			</value>
+		</option>	
+		<option name="section.title.sep" type="length">
+			<description>Abstand nach Kapitelüberschrift</description>
+			<value>5mm</value>
+		</option>
+		<option name="par.initial.indent" type="length">
+			<description>Absatzeinzug</description>
+			<value>0cm</value>
+		</option>
+		<option name="par.sep" type="length">
+			<description>Absatzabstand</description>
+			<value>5mm</value>
+		</option>
+	</section>
+	
+	<!--section title="Tabellen">
+		<option name="table.cellpadding" type="length">
+			<description>Innenabstand</description>
+			<value>5pt</value>
+		</option>
+	</section-->
+
+	<section title="Sonstiges">
+		<option name="units.dpi" type="int">
+			<description>dpi</description>
+			<value>200</value>
+		</option>
+	</section>
+
+	<section title="hidden">
+		<option name="processing.date" type="string">
+			<description>Datum der Dokumenterstellung</description>
+			<value/>
+		</option>
+		<option name="processing.mode" type="string">
+			<value>page</value>
+		</option>
+		<option name="target.format" type="string">
+			<description>Zielformat</description>
+			<value>pdf</value>
+		</option>
+	</section>
+</options>

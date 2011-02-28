@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document-options>
+	<sections>
+		<section level="all">
+			<caption>
+				<font-weight>bold</font-weight>
+			</caption>
+			<body>
+				<font-size>10pt</font-size>
+				<par-dist>5pt</par-dist>
+			</body>
+		</section>
+		<section level="1">
+			<caption>
+				<font-size>24pt</font-size>
+			</caption>			
+		</section>
+		<section level="2">
+			<caption>
+				<font-size>22pt</font-size>
+			</caption>
+		</section>
+		<section level="3">
+			<caption>
+				<font-size>20pt</font-size>
+			</caption>
+		</section>
+		<section level="4">
+			<caption>
+				<font-size>18pt</font-size>
+			</caption>
+		</section>
+		<section level="5">
+			<caption>
+				<font-size>16pt</font-size>
+			</caption>
+		</section>
+	</sections>		
+	
+	<footnote>
+		<rule-length>33%</rule-length>
+		<font-size>8pt</font-size>
+	</footnote>
+</document-options>

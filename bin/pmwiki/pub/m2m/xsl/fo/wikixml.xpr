@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="wikixml.xpr">
+        <folder name="fo">
+            <file
+                name="../../../../../pmwiki-2.1.27/pub/m2m/xsl/fo/form.xsl"/>
+            <file name="functions.xsl"/>
+            <file name="images.xsl"/>
+            <file name="lists.xsl"/>
+            <file name="page.xsl"/>
+            <file name="params.xsl"/>
+            <file name="sections.xsl"/>
+            <file name="styles.xsl"/>
+            <file name="tables.xsl"/>
+            <file name="../titlepage.xsl"/>
+            <file name="toc.xsl"/>
+            <file name="wikixml.xsl"/>
+        </folder>
+        <folder name="html"/>
+        <folder name="options">
+            <file name="../opt2xsl.xsl"/>
+            <file name="../../options/pdffo.xml"/>
+        </folder>
+    </projectTree>
+</project>

@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Kundenbereich"
+AuthUserFile /Users/daniel/Sites/xox/.htpasswd
+AuthGroupFile /Users/daniel/Sites/xox/.htgroup
+require group hexerei

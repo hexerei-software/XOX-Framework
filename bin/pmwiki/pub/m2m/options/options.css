@@ -1,0 +1,48 @@
+body,table,tr,td {font-family:sans-serif;}
+a         {text-decoration:none; font-weight:bold; color:#ffffff;}
+a:visited {text-decoration:none; font-weight:bold; color:#ffffff;}
+img       {border:none;}
+
+.title {
+	float:left;
+	font-weight:bold;
+	font-size:x-large;
+	color:#eeeeee;
+}
+
+.openclose {
+	float: right;
+}
+
+.bgtable{
+	background-color:#eeeeee;
+	border: 1px solid black;
+}
+
+
+.catrow {background-color:#666666;}
+.opt1   {background-color:#cccccc;}
+.opt2   {background-color:#dddddd;}
+
+.open {
+	background-image: url('../images/minus.gif');
+	background-repeat: no-repeat;	
+	background-position: center left;
+	padding-left: 15px;
+	cursor: pointer;
+}
+.close {
+	background-image: url('../images/plus.gif');
+	background-repeat: no-repeat;	
+	background-position: center left;
+	padding-left: 15px;
+	cursor: pointer;
+}
+.button {
+	background-color: #cccccc;
+	color: black;
+	border: 1px solid #888888;
+}
+.dropdown {
+	background-color: #cccccc;
+}

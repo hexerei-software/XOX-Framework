@@ -1,0 +1,5 @@
+[Autorun]
+Open=PortableApps\PortableAppsMenu\PortableAppsMenu.exe
+Action=Start PortableApps
+Icon=PortableApps\PortableAppsMenu\PortableAppsMenu.exe
+Label=PortableApps
